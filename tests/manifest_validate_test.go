@@ -387,7 +387,9 @@ storage:
   strictContentTypeValidation: false
 type: group
 ---
-cleanup: null
+cleanup: 
+  policyNames:
+  - weekly-cleanup
 format: raw
 name: cos-2.5.97-net-sle-15sp4-shs-2.0
 online: true
