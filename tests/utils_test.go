@@ -107,3 +107,23 @@ iuf_version: ^0.5.0
 		}
 	}
 }
+
+func TestMultiSchemaYamlDocSingle_3(t *testing.T) {
+	data := []byte(`---
+iuf_version: ^0.5.0
+`)
+
+	expected := [][]byte{
+		[]byte(`
+iuf_version: ^0.5.0
+`)}
+
+	response := mutils.SplitMultiYamlFile(data)
+
+	for i, b := range expected {
+
+		if string(b) != string(response[i]) {
+			t.Fatal("Spilt operations is not working properly, expected:", string(b), "response got:", string(response[i]))
+		}
+	}
+}
